@@ -1,7 +1,7 @@
 import { preguntas as listaPreguntas } from "./Pregunta.js";
 import { Preguntas } from "../Class/ClassPreguntas.js";
 
-let arrayPregunta = new Array();
+export let arrayPregunta = new Array();
 
 listaPreguntas.forEach(function (element) {
   arrayPregunta.push(
@@ -15,5 +15,3 @@ listaPreguntas.forEach(function (element) {
     )
   );
 });
-
-export default arrayPregunta;

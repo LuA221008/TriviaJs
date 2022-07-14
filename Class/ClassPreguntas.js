@@ -13,7 +13,13 @@
         
     }
 
-    respuestaCorrecta  = (respuestaUsuario) => respuestaUsuario === this.correct;   
+    respuestaCorrecta  = (respuestaUsuario) => respuestaUsuario === this.correct; 
+    
+    catergotiaUsuario(){
+        if (this.respuestaCorrecta ){
+            this.level +=1;
+        }
+    }
     
 
 
