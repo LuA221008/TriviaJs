@@ -1,9 +1,17 @@
 import { Game } from "/Class/ClassGame.js";
 import { arrayPregunta } from "/Archive/ObjetoPreguntas.js";
+import { viewLogin } from "/View/viewLogin.js";
+import {  saveUser } from "../Archive/ingresoUser.js";
 
 const juego1 = new Game(arrayPregunta);
 let question, correct, option1, option2, option3;
 let level = juego1.level;
+let score = juego1.puntaje;
+let gameContainer = document.querySelector(".game-container");
+  let questionContainer = document.querySelector(".question-container");
+  let answerContainer = document.querySelector(".answer-container");
+  let nivel = document.querySelector(".nivel-game");
+  let scoreUser = document.querySelector(".user-puntaje");
 function preguntaActualizada() {
   let nuevaPregunta = juego1.getRandomPregunta(level);
   question = nuevaPregunta.question;
@@ -14,9 +22,11 @@ function preguntaActualizada() {
 }
 preguntaActualizada();
 
-const container = document.querySelector("#container");
 const GameContainer = document.createElement("div");
+const container = document.querySelector("#container");
+
 GameContainer.classList.add("game-container");
+
 
 const titleContainer = document.createElement("div"); //-----este se agrega a game container
 titleContainer.classList.add("title-container");
@@ -26,10 +36,18 @@ title.classList.add("titulos");
 title.innerHTML = "PREGUNTADOS";
 titleContainer.append(title);
 
-GameContainer.append(titleContainer);
-container.append(GameContainer);
+const buttonSalir = document.createElement("button");
+buttonSalir.classList.add("Butoonsalir");
+buttonSalir.innerHTML="EXIT";
+buttonSalir.addEventListener("click",()=>viewLogin("block"))
 
-export const viewGame = () => {
+container.append(titleContainer,GameContainer);
+
+export const viewGame = (display) => {
+ 
+
+  
+  GameContainer.style.display = display;
   const respuestas = [correct, option1, option2, option3];
 
   const questionContainer = document.createElement("div"); //--contenedor pregunta
@@ -37,49 +55,71 @@ export const viewGame = () => {
 
   const questionOne = document.createElement("p");
   questionOne.classList.add("questions");
-  questionOne.innerText = `prueba preguna ${question}`;
+  questionOne.innerText = `${question}`;
 
   questionContainer.append(questionOne);
 
-  //pregunta uno boton y texto
+  
+  const nivel = document.createElement("h2");
+  nivel.classList.add("nivel-game");
+  nivel.innerHTML =`nivel ${level}`;
+
+  const userPuntaje = document.createElement("h2");
+  userPuntaje.classList.add("user-puntaje");
+  userPuntaje.innerHTML =`puntaje ${score}`;
+
 
   const answerContainer = document.createElement("div");
   answerContainer.classList.add("answer-container");
 
   crearBotones(respuestas, answerContainer);
-  GameContainer.append(questionContainer, answerContainer);
+  GameContainer.append(questionContainer, answerContainer,nivel,userPuntaje,buttonSalir);
 };
 
 const keypressed = (event) => {
-  const buttonPressed = event.target.innerHTML;
-  console.log(buttonPressed);
+  const buttonPressed = event.target.innerHTML;  
   validarAnswer(buttonPressed);
 };
 
 function validarAnswer(buttonPressed) {
   if (buttonPressed == correct) {
     if (level == 5) {
+      alert("muy bien, ganaste");
       level = 1;
+      score =0;
+      saveUser(score);
+      viewGame("none");
+      viewLogin("block");                
       actualizar();
       return;
     }
-
-    level += 1;
+    score +=10;
+    level += 1;    
     actualizar();
+    saveUser(score)
   } else {
     console.log("respuesta incorrecta");
     alert("Perdiste tonto");
     level = 1;
+    score =0;
+    viewGame("none");
+    viewLogin("block");
+    saveUser(score); 
     actualizar();
+    
   }
 }
 function actualizar() {
-  let gameContainer = document.querySelector(".game-container");
-  let questionContainer = document.querySelector(".question-container");
-  let answerContainer = document.querySelector(".answer-container");
+  gameContainer = document.querySelector(".game-container");
+  questionContainer = document.querySelector(".question-container");
+  answerContainer = document.querySelector(".answer-container");
+  nivel = document.querySelector(".nivel-game");
+  scoreUser = document.querySelector(".user-puntaje");
 
   gameContainer.removeChild(questionContainer);
   gameContainer.removeChild(answerContainer);
+  gameContainer.removeChild(nivel);
+  gameContainer.removeChild(scoreUser);
 
   preguntaActualizada();
   viewGame();
@@ -91,13 +131,10 @@ function randomAnswer(array) {
   let indiceActual = respuesta.length;
   let indicealeatorio;
 
-  // While there remain elements to shuffle. -------borrqr luego
   while (indiceActual !== 0) {
-    // Pick a remaining element.
     indicealeatorio = Math.floor(Math.random() * indiceActual);
     indiceActual--;
 
-    // And swap it with the current element.
     [respuesta[indiceActual], respuesta[indicealeatorio]] = [
       respuesta[indicealeatorio],
       respuesta[indiceActual],
@@ -111,7 +148,9 @@ function crearBotones(answers, answerContainer) {
   randomAnswer(answers).forEach((element) => {
     let crearB = document.createElement("button");
     crearB.textContent = element;
+    crearB.classList.add("buttons");
     crearB.addEventListener("click", keypressed);
     answerContainer.append(crearB);
   });
 }
+

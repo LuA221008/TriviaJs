@@ -63,8 +63,7 @@ export class Game {
       /// recordar cambiar esto a this.level
     });
     let random = Math.floor(Math.random() * (ressult.length - 1));
-    let randomQuestion = ressult[random];
-    console.log(randomQuestion);
+    let randomQuestion = ressult[random];   
 
     return { ...randomQuestion };
   }
