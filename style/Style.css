@@ -1,0 +1,32 @@
+#body{
+    background-color:#637494;
+}
+.login-contenedor{
+
+    width: 400px;
+    height: 500px;
+    background-color: #313745;
+    padding-right: 500px;
+    padding-left: 200px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 70px;
+    border-radius: 20px;       
+}
+.form-content{
+    width: 400px;
+    height: 500px;
+    background-color: aliceblue;
+    padding-right: 200px;
+    padding-left: 200px;
+}
+
+.input-username{   
+    margin-top: 100px;
+    margin-left: 80px;
+    width: 400px;
+    height: 6
+    5px;  
+       
+
+}

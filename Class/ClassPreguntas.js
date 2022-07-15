@@ -1,26 +1,14 @@
+export class Preguntas {
+  constructor(level, question, correct, option1, option2, option3) {
+    this.level = level;
+    this.question = question;
+    this.correct = correct;
+    this.option1 = option1;
+    this.option2 = option2;
+    this.option3 = option3;
+  }
 
- export class Preguntas {
-
-    constructor(level,question,correct,option1,option2,option3) {
-
-        this.level = level;
-        this.question = question;
-        this.correct = correct;
-        this.option1 = option1;
-        this.option1 = option2;
-        this.option3 = option3;
-
-        
-    }
-
-    respuestaCorrecta  = (respuestaUsuario) => respuestaUsuario === this.correct; 
-    
-    catergotiaUsuario(){
-        if (this.respuestaCorrecta ){
-            this.level +=1;
-        }
-    }
-    
-
-
+  respuestaCorrecta = (respuestaUsuario) => {
+    return respuestaUsuario === this.correct;
+  };
 }

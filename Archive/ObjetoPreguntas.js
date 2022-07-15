@@ -1,5 +1,5 @@
-import { preguntas as listaPreguntas } from "./Pregunta.js";
-import { Preguntas } from "../Class/ClassPreguntas.js";
+import { preguntas as listaPreguntas } from "/Archive/Pregunta.js";
+import { Preguntas } from "/Class/ClassPreguntas.js";
 
 export let arrayPregunta = new Array();
 
