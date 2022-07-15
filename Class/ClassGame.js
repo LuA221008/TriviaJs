@@ -5,7 +5,7 @@ export class Game {
     this.preguntasGame = preguntasGame;
     this.preguntaIndex = 0;
     this.puntaje = 0;
-    this.level = 2;
+    this.level = 1;
     this.juegoTerminado = false;
   }
   // set y get de PreguntasGame
@@ -36,7 +36,7 @@ export class Game {
   getPuntaje() {
     return this.puntaje;
   }
-  // set y get de level
+ 
 
   setLevel(level) {
     this.level = level;
@@ -45,6 +45,7 @@ export class Game {
   getLevel() {
     return this.level;
   }
+  
   getIndexPregunta() {
     return this.preguntasGame[this.preguntaIndex];
   }
@@ -55,32 +56,17 @@ export class Game {
   //METODOS
   //metodo para las preguntas aleatoreas
 
-  getRandomPregunta() {
-    let level = this.getLevel();
+  getRandomPregunta(level) {
     let ressult = this.preguntasGame.filter(function (preguntita) {
       return preguntita.level == level;
+
       /// recordar cambiar esto a this.level
     });
-    let random = Math.floor(Math.random() * (ressult.length -1));
+    let random = Math.floor(Math.random() * (ressult.length - 1));
     let randomQuestion = ressult[random];
-    
+    console.log(randomQuestion);
 
     return { ...randomQuestion };
-  } //metodo para aumentar el puntaje y el nivel
-
-  verificar(correct) {
-    if (this.getIndexPregunta().respuestaCorrecta(correct)) {
-      if (this.getJuegoTerminado()) {
-        this.juegoTerminado = true;
-        this.puntaje = 50;
-        return true;
-      } else {
-        this.puntaje += 10;
-        this.level += 1;
-      }
-    } else {
-      this.juegoTerminado = true;
-      return false;
-    }
   }
+  //metodo para aumentar el puntaje y el nivel
 }
