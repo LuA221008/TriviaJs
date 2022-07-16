@@ -7,6 +7,7 @@ const juego1 = new Game(arrayPregunta);
 let question, correct, option1, option2, option3;
 let level = juego1.level;
 let score = juego1.puntaje;
+
 let gameContainer = document.querySelector(".game-container");
   let questionContainer = document.querySelector(".question-container");
   let answerContainer = document.querySelector(".answer-container");
@@ -21,6 +22,7 @@ function preguntaActualizada() {
   option3 = nuevaPregunta.option3;
 }
 preguntaActualizada();
+ 
 
 const GameContainer = document.createElement("div");
 const container = document.querySelector("#container");
@@ -66,6 +68,7 @@ export const viewGame = (display) => {
   const userPuntaje = document.createElement("h2");
   userPuntaje.classList.add("user-puntaje");
   userPuntaje.innerHTML =`puntaje ${score}`;
+  
 
 
   const answerContainer = document.createElement("div");
@@ -85,35 +88,44 @@ function validarAnswer(buttonPressed) {
     if (level == 5) {
       alert("muy bien, ganaste");
       level = 1;
-      score =0;
-      saveUser(score);
+      score =0;      
       GameContainer.style.display = "none";      
       viewLogin("block");                
       actualizar();
+      saveUser(50);
       return;
+     
     }
     score +=10;
-    level += 1;    
+    level += 1;           
     actualizar();
-    saveUser(score)
+        
   } else {
     console.log("respuesta incorrecta");
     alert("Perdiste tonto");
     level = 1;
-    score =0; 
+    puntajeactual(score);   
     GameContainer.style.display = "none";   
-    viewLogin("block");
-    saveUser(score); 
+    viewLogin("block");    
     actualizar();
+    score=0;
+    
+
     
   }
+ 
+  
 }
+
 export function actualizar() {
+  
   gameContainer = document.querySelector(".game-container");
   questionContainer = document.querySelector(".question-container");
   answerContainer = document.querySelector(".answer-container");
   nivel = document.querySelector(".nivel-game");
   scoreUser = document.querySelector(".user-puntaje");
+
+  
 
   if (questionContainer != null){
 
@@ -121,11 +133,12 @@ export function actualizar() {
   gameContainer.removeChild(answerContainer);
   gameContainer.removeChild(nivel);
   gameContainer.removeChild(scoreUser);
+  
 
   }
-
   preguntaActualizada();
   viewGame();
+  
 }
 
 function randomAnswer(array) {
@@ -155,4 +168,16 @@ function crearBotones(answers, answerContainer) {
     crearB.addEventListener("click", keypressed);
     answerContainer.append(crearB);
   });
+}
+
+function puntajeactual(score){
+  if(score ===10){
+    saveUser(10);
+  }else if(score ==20){
+    saveUser(20);
+  }else if(score ==30){
+    saveUser(30)
+  }else if (score ==40){
+    saveUser(40)
+  }
 }

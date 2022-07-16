@@ -13,23 +13,54 @@
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25) ;       
 }
+
+.contarine-description{
+    background-color: #9ea2c8;
+    width: 42rem;
+    border-radius: 1rem;
+    margin-left: 5rem;
+    
+}
+.description{    
+    color: rgb(9, 7, 7);
+    width: 38rem; 
+       
+    font-size: 1.2rem;  
+   
+}
 .form-content{
     width: 400px;
-    height: 500px;
-    background-color: aliceblue;
+    height: 300px;
+    margin-top:2 rem;
+    background-color: rgb(12, 17, 21);
     padding-right: 200px;
     padding-left: 200px;
+    border-radius: 5rem;
+    
 }
 
 .input-username{   
-    margin-top: 100px;
-    margin-left: 80px;
-    width: 400px;
-    height: 6
-    5px;  
+    margin-top: 5rem;
+    margin-left: 3rem;
+    width: 10rem;
+    background-color: #9BA3EB; 
        
 
 }
+
+
+
+.butto-iniciar{
+    width: 9rem;
+    height: 2.5rem;
+    margin: 2rem 0  1rem 9rem;
+    border-radius: 5rem;
+    font-style:oblique;
+    color:#DBDFFD ;
+    background-color:#764AF1;
+
+}
+
 
 .buttons{
     width: 30rem;
@@ -86,20 +117,31 @@
     margin: 0 0  1rem 20rem;
 }
 
-.butto-iniciar{
-    width: 9rem;
-    height: 2.5rem;
-    margin: 5rem 0  1rem 10rem;
-    border-radius: 5rem;
-    font-style:oblique;
-    color:#DBDFFD ;
-    background-color:#764AF1;
 
-}
 .input-username{
     width: 20rem;
     height: 4rem;
     margin-right: 20rem;
     border-radius: 5rem;
+}
+
+.historia-container{
+    background-color:#9BA3EB;
+    margin-top: 5rem;
+    border-radius: 2rem;
+    width: 20rem;
+    height: 30rem;
+    overflow: scroll;
+    margin-left: 25rem;
+}
+.newUsers{
+    background-color: #242F9B;
+    color: #DBDFFD;
+    width: 6.5rem;
+    height: 3rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    font-size:1.5rem;
 }
 

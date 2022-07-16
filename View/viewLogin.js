@@ -5,12 +5,12 @@ import { actualizar } from "/View/viewQuiz.js";
 export const viewLogin = (display) => {
 
   const buttonIniciar = document.createElement("button");
-const inputName = document.createElement("input");
-inputName.type = "text";
-inputName.placeholder = "enter Username";
-inputName.classList.add("input-username");
-const loginContainer = document.createElement("div");
-loginContainer.classList.add("login-contenedor");
+  const inputName = document.createElement("input");
+  inputName.type = "text";
+  inputName.placeholder = "Username";
+  inputName.classList.add("input-username");
+  const loginContainer = document.createElement("div");
+  loginContainer.classList.add("login-contenedor");
   // contenedor principal
   const container = document.body;
 
@@ -18,20 +18,26 @@ loginContainer.classList.add("login-contenedor");
 
   const contenedorForm = document.createElement("div");
   contenedorForm.classList.add("form-content");
-  //laber para ingresar el nombre del usuario
-  const labelName = document.createElement("label");
-  labelName.classList.add("label-username");
+
 
   //Botton de agregar jugador
 
   buttonIniciar.classList.add("butto-iniciar");
   buttonIniciar.innerHTML = "INICIAR JUEGO";
 
-  // Botton de salir
+  const divDescription = document.createElement("div");
+  divDescription.classList.add("contarine-description");
 
-  contenedorForm.append(labelName, inputName, buttonIniciar);
 
-  formatoLogin.append(contenedorForm); // dentro del logincontainer
+  const description = document.createElement("p");
+  description.classList.add("description");
+  description.innerHTML ="¡Bienvenido al juego de preguntas! En este espacio pondremos a prueba tu conocimiento, tendrar que responder 5 preguntas, cada una de un nivel diferente ";
+
+  divDescription.append(description);
+
+  contenedorForm.append(divDescription, inputName, buttonIniciar);
+
+  formatoLogin.append(divDescription,contenedorForm); // dentro del logincontainer
 
   loginContainer.append(formatoLogin);
   container.append(loginContainer);
