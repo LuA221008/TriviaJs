@@ -25,7 +25,7 @@ loginContainer.classList.add("login-contenedor");
   //Botton de agregar jugador
 
   buttonIniciar.classList.add("butto-iniciar");
-  buttonIniciar.innerHTML = "SEGUIR";
+  buttonIniciar.innerHTML = "INICIAR JUEGO";
 
   // Botton de salir
 

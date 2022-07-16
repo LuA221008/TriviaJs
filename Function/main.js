@@ -1,8 +1,10 @@
 
+import { userDatabase } from "/Archive/ingresoUser.js";
 import { viewLogin } from "/View/viewLogin.js";
-import { userDatabase } from "../Archive/userDataBase.js";
-import { viewGame } from "../View/viewQuiz.js";
+import{viewHistorial} from "/View/dataBase.js"
 
 userDatabase();
-
 viewLogin("block");
+
+//viewHistorial();
+

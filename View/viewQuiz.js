@@ -45,7 +45,7 @@ buttonSalir.addEventListener("click",()=>viewLogin("block"))
 container.append(titleContainer,GameContainer);
 
 export const viewGame = (display) => {
-  console.log("holaaaa")
+  
   
   const respuestas = [correct, option1, option2, option3];
 

@@ -86,3 +86,20 @@
     margin: 0 0  1rem 20rem;
 }
 
+.butto-iniciar{
+    width: 9rem;
+    height: 2.5rem;
+    margin: 5rem 0  1rem 10rem;
+    border-radius: 5rem;
+    font-style:oblique;
+    color:#DBDFFD ;
+    background-color:#764AF1;
+
+}
+.input-username{
+    width: 20rem;
+    height: 4rem;
+    margin-right: 20rem;
+    border-radius: 5rem;
+}
+
