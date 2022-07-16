@@ -1,19 +1,18 @@
 import { registrarusuario } from "/Archive/ingresoUser.js";
-import { viewGame } from "/View/viewQuiz.js";
+import { actualizar } from "/View/viewQuiz.js";
 
 
 export const viewLogin = (display) => {
-  
+
+  const buttonIniciar = document.createElement("button");
+const inputName = document.createElement("input");
+inputName.type = "text";
+inputName.placeholder = "enter Username";
+inputName.classList.add("input-username");
+const loginContainer = document.createElement("div");
+loginContainer.classList.add("login-contenedor");
   // contenedor principal
   const container = document.body;
-  
-  const inputName = document.createElement("input");
-  inputName.type = "text";
-  inputName.placeholder = "enter Username";
-  inputName.classList.add("input-username");
-  const loginContainer = document.createElement("div");
-  loginContainer.classList.add("login-contenedor");
-  
 
   const formatoLogin = document.createElement("div");
 
@@ -24,16 +23,9 @@ export const viewLogin = (display) => {
   labelName.classList.add("label-username");
 
   //Botton de agregar jugador
-  const buttonIniciar = document.createElement("button");
+
   buttonIniciar.classList.add("butto-iniciar");
   buttonIniciar.innerHTML = "SEGUIR";
-  buttonIniciar.addEventListener("click", () => {
-    console.log(inputName.value);
-    registrarusuario(inputName.value);
-    loginContainer.style.display = "none";
-    viewGame();
-    
-  });
 
   // Botton de salir
 
@@ -45,6 +37,18 @@ export const viewLogin = (display) => {
   container.append(loginContainer);
 
   loginContainer.style.display = display;
+
+  buttonIniciar.addEventListener("click", () => {
+    console.log(inputName.value);
+    registrarusuario(inputName.value);
+    let gameContainer = document.querySelector(".game-container");
+    loginContainer.style.display = "none";
+    gameContainer.style.display = "block";
+    actualizar();
+   
+    
+    
+  });
 };
 
 

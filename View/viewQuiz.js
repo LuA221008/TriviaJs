@@ -26,6 +26,7 @@ const GameContainer = document.createElement("div");
 const container = document.querySelector("#container");
 
 GameContainer.classList.add("game-container");
+GameContainer.style.display = "none"
 
 
 const titleContainer = document.createElement("div"); //-----este se agrega a game container
@@ -44,10 +45,8 @@ buttonSalir.addEventListener("click",()=>viewLogin("block"))
 container.append(titleContainer,GameContainer);
 
 export const viewGame = (display) => {
- 
-
+  console.log("holaaaa")
   
-  GameContainer.style.display = display;
   const respuestas = [correct, option1, option2, option3];
 
   const questionContainer = document.createElement("div"); //--contenedor pregunta
@@ -88,7 +87,7 @@ function validarAnswer(buttonPressed) {
       level = 1;
       score =0;
       saveUser(score);
-      viewGame("none");
+      GameContainer.style.display = "none";      
       viewLogin("block");                
       actualizar();
       return;
@@ -101,25 +100,29 @@ function validarAnswer(buttonPressed) {
     console.log("respuesta incorrecta");
     alert("Perdiste tonto");
     level = 1;
-    score =0;
-    viewGame("none");
+    score =0; 
+    GameContainer.style.display = "none";   
     viewLogin("block");
     saveUser(score); 
     actualizar();
     
   }
 }
-function actualizar() {
+export function actualizar() {
   gameContainer = document.querySelector(".game-container");
   questionContainer = document.querySelector(".question-container");
   answerContainer = document.querySelector(".answer-container");
   nivel = document.querySelector(".nivel-game");
   scoreUser = document.querySelector(".user-puntaje");
 
+  if (questionContainer != null){
+
   gameContainer.removeChild(questionContainer);
   gameContainer.removeChild(answerContainer);
   gameContainer.removeChild(nivel);
   gameContainer.removeChild(scoreUser);
+
+  }
 
   preguntaActualizada();
   viewGame();
@@ -153,4 +156,3 @@ function crearBotones(answers, answerContainer) {
     answerContainer.append(crearB);
   });
 }
-
