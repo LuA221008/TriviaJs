@@ -1,5 +1,6 @@
 import { registrarusuario } from "/Archive/ingresoUser.js";
 import { actualizar } from "/View/viewQuiz.js";
+import {viewHistorial} from "/View/dataBase.js"
 
 
 export const viewLogin = (display) => {
@@ -7,7 +8,7 @@ export const viewLogin = (display) => {
   const buttonIniciar = document.createElement("button");
   const inputName = document.createElement("input");
   inputName.type = "text";
-  inputName.placeholder = "Username";
+  inputName.placeholder = "Ingresar Nombre de usuario";
   inputName.classList.add("input-username");
   const loginContainer = document.createElement("div");
   loginContainer.classList.add("login-contenedor");
@@ -31,18 +32,29 @@ export const viewLogin = (display) => {
 
   const description = document.createElement("p");
   description.classList.add("description");
-  description.innerHTML ="¡Bienvenido al juego de preguntas! En este espacio pondremos a prueba tu conocimiento, tendrar que responder 5 preguntas, cada una de un nivel diferente ";
+  description.innerHTML ="¡Bienvenido a Preguntados! Aquí pondremos a prueba tus cocnocimientos, a medida que respondas de manera correcta acumularas puntos y subirás de nivel. ¡PONTE A PRUEBA!";
+  loginContainer.style.display = display;
+  const botonHistorial = document.createElement("button");
+  botonHistorial.classList.add("buttonHistory");
+  botonHistorial.innerHTML ="HISTORIAL"
 
   divDescription.append(description);
 
-  contenedorForm.append(divDescription, inputName, buttonIniciar);
+  contenedorForm.append(divDescription, inputName, buttonIniciar,botonHistorial);
 
   formatoLogin.append(divDescription,contenedorForm); // dentro del logincontainer
 
   loginContainer.append(formatoLogin);
   container.append(loginContainer);
 
-  loginContainer.style.display = display;
+
+  botonHistorial.addEventListener("click",()=>{
+    let historialContainer = document.querySelector(".historia-container");
+    loginContainer.style.display=("none");
+    historialContainer.style.display = "block";
+    viewHistorial();
+  })  
+
 
   buttonIniciar.addEventListener("click", () => {
     console.log(inputName.value);
