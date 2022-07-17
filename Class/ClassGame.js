@@ -1,28 +1,27 @@
-import { Preguntas } from "./ClassPreguntas.js";
-
+/**
+ * @LuisaAvila
+ * @Clas se crea la clase Game que es el modelo para el jugador, donde tendrá una pregunta, un puntaje, un nivel y se determina la terminación del juego.
+ * @see
+ */
 export class Game {
   constructor(preguntasGame) {
     this.preguntasGame = preguntasGame;
-    this.preguntaIndex = 0;
     this.puntaje = 0;
     this.level = 1;
     this.juegoTerminado = false;
   }
-  // set y get de PreguntasGame
+
+  /**
+   * @LuisaAvila
+   * @method se generan los método set y get para acceder al las variables de la clase.
+   */
+
   setPreguntasGame(arrayPregunta) {
     this.preguntasGame = arrayPregunta;
   }
 
   getPreguntasGame() {
     return this.preguntasGame;
-  }
-  // set y get de IndexPregunta
-  setIndexPregunta(index) {
-    this.preguntaIndex = index;
-  }
-
-  getIndexPregunta() {
-    return this.preguntaIndex;
   }
 
   getPreguntasGame() {
@@ -36,7 +35,6 @@ export class Game {
   getPuntaje() {
     return this.puntaje;
   }
- 
 
   setLevel(level) {
     this.level = level;
@@ -45,27 +43,23 @@ export class Game {
   getLevel() {
     return this.level;
   }
-  
-  getIndexPregunta() {
-    return this.preguntasGame[this.preguntaIndex];
-  }
+
   getJuegoTerminado() {
     return this.getLevel() === 5 && this.getPuntaje() == 50;
   }
-
-  //METODOS
-  //metodo para las preguntas aleatoreas
+  /**
+   * @LuisaAvila
+   * @method el método viewLogin que permite construir la ventana para que el usuario se registre y pueda comenzar el juego.
+   * @param se ingresa el parametro level el cual irá variando confrome el usuario aumente el nivel y asi poder filtrar la preguntas segun el nivel en el que está.
+   */
 
   getRandomPregunta(level) {
     let ressult = this.preguntasGame.filter(function (preguntita) {
       return preguntita.level == level;
-
-      /// recordar cambiar esto a this.level
     });
     let random = Math.floor(Math.random() * (ressult.length - 1));
-    let randomQuestion = ressult[random];   
+    let randomQuestion = ressult[random];
 
     return { ...randomQuestion };
   }
-  //metodo para aumentar el puntaje y el nivel
 }
