@@ -1,4 +1,4 @@
-import { viewLogin } from "/View/viewLogin.mjs";
+import { viewLogin } from "../View/viewLogin.mjs";
 
 /**
  * @LuisaAvila

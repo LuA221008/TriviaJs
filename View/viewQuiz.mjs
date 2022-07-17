@@ -1,6 +1,6 @@
-import { Game } from "/Class/ClassGame.mjs";
-import { arrayPregunta } from "/Archive/ObjetoPreguntas.mjs";
-import { viewLogin } from "/View/viewLogin.mjs";
+import { Game } from "../Class/ClassGame.mjs";
+import { arrayPregunta } from "../Archive/ObjetoPreguntas.mjs";
+import { viewLogin } from "../View/viewLogin.mjs";
 import { saveUser } from "../Archive/ingresoUser.mjs";
 
 const juego1 = new Game(arrayPregunta);

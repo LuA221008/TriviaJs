@@ -1,5 +1,5 @@
-import { preguntas as listaPreguntas } from "/Archive/Pregunta.mjs";
-import { Preguntas } from "/Class/ClassPreguntas.mjs";
+import { preguntas as listaPreguntas } from "../Archive/Pregunta.mjs";
+import { Preguntas } from "../Class/ClassPreguntas.mjs";
 
 /**
  * @LuisaAvila
