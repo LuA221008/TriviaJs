@@ -1,7 +1,7 @@
-import { Game } from "/Class/ClassGame.js";
-import { arrayPregunta } from "/Archive/ObjetoPreguntas.js";
-import { viewLogin } from "/View/viewLogin.js";
-import { saveUser } from "../Archive/ingresoUser.js";
+import { Game } from "/Class/ClassGame.mjs";
+import { arrayPregunta } from "/Archive/ObjetoPreguntas.mjs";
+import { viewLogin } from "/View/viewLogin.mjs";
+import { saveUser } from "../Archive/ingresoUser.mjs";
 
 const juego1 = new Game(arrayPregunta);
 let question, correct, option1, option2, option3;
@@ -94,7 +94,7 @@ const keypressed = (event) => {
 function validarAnswer(buttonPressed) {
   if (buttonPressed == correct) {
     if (level == 5) {
-      alert("muy bien, ganaste");
+      alert("¡Muy bien! ganaste");
       level = 1;
       score = 0;
       GameContainer.style.display = "none";
@@ -108,7 +108,7 @@ function validarAnswer(buttonPressed) {
     actualizar();
   } else {
     console.log("respuesta incorrecta");
-    alert("Perdiste tonto");
+    alert("Lo sentimos, has perdido");
     level = 1;
     puntajeactual(score);
     GameContainer.style.display = "none";

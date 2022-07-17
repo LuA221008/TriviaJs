@@ -1,6 +1,6 @@
-import { registrarusuario } from "/Archive/ingresoUser.js";
-import { actualizar } from "/View/viewQuiz.js";
-import { viewHistorial } from "/View/dataBase.js";
+import { registrarusuario } from "/Archive/ingresoUser.mjs";
+import { actualizar } from "/View/viewQuiz.mjs";
+import { viewHistorial } from "/View/dataBase.mjs";
 
 /**
  * @LuisaAvila

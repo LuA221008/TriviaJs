@@ -1,15 +1,15 @@
 /**
  * @LuisaAvila
- * @method el método vuserDataBase permite inicializar el localStorage para ingregar la información del usuario. 
+ * @method el método vuserDataBase permite inicializar el localStorage para ingregar la información del usuario.
  */
 
 export const userDatabase = () => {
-    if (localStorage.length == 0) {
-      const user = [{ userName: "ganador", score: "50" }];
-  
-      localStorage.setItem("ingresoUser", JSON.stringify(user));
-    }
-  };
+  if (localStorage.length == 0) {
+    const user = [{ userName: "ganador", score: "50" }];
+
+    localStorage.setItem("ingresoUser", JSON.stringify(user));
+  }
+};
 
 /**
  * @LuisaAvila
@@ -29,10 +29,7 @@ export function saveUser(score) {
   let user = { username: name, score: score };
 
   let dataBase = JSON.parse(localStorage.getItem("ingresoUser"));
-  dataBase.push(user)
-  localStorage.setItem("ingresoUser",JSON.stringify(dataBase));
-  console.log(dataBase)
+  dataBase.push(user);
+  localStorage.setItem("ingresoUser", JSON.stringify(dataBase));
+  console.log(dataBase);
 }
-
-
-
